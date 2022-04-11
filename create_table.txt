@@ -1,0 +1,103 @@
+CREATE TABLE "classroom" (
+	"classroom_id"	INTEGER NOT NULL,
+	"teacher_id"	INTEGER,
+	"classroom_name"	VARCHAR(3),
+	"class"	VARCHAR(45),
+	PRIMARY KEY("classroom_id")
+);
+
+
+CREATE TABLE "student" (
+	"student_id"	INTEGER NOT NULL,
+	"first_name"	VARCHAR(45),
+	"last_name"	VARCHAR(45),
+	"email"	VARCHAR(45),
+	"password"	VARCHAR(45),
+	"image_student"	TEXT,
+	"phone"	VARCHAR(45),
+	"age"	INTEGER,
+	"Date_of_birth"	DATE,
+	"parent_id"	INTEGER,
+	"club_id"	INTEGER,
+	"gender"	VARCHAR(2),
+	PRIMARY KEY("student_id")
+);
+
+CREATE TABLE "teacher" (
+	"teacher_id"	INTEGER NOT NULL,
+	"first_name"	VARCHAR(45),
+	"last_name"	VARCHAR(45),
+	"email"	VARCHAR(45),
+	"phone"	VARCHAR(45),
+	"Date_of_birth"	INTEGER,
+	"age"	INTEGER,
+	"qualification"	VARCHAR(45),
+	"year_of_expr"	INTEGER,
+	"gender"	VARCHAR(45),
+	"address"	VARCHAR(45)
+);  
+
+
+CREATE TABLE "students_has_classroom" (
+	"student_id"	INTEGER NOT NULL,
+	"classroom_id"	INTEGER NOT NULL,
+	PRIMARY KEY("student_id")
+);
+
+
+CREATE TABLE "retree_teacher" (
+	"teacher_id"	INTEGER NOT NULL,
+	"first_name"	VARCHAR(45),
+	"last_name"	VARCHAR(45),
+	"email"	VARCHAR(45),
+	"phone"	INTEGER,
+	"age"	INTEGER,
+	"Date_of_birth"	DATE,
+	"qualification"	VARCHAR(45),
+	"year_of_expr"	INTEGER,
+	"gender"	VARCHAR(45)
+);
+
+
+CREATE TABLE "event" (
+	"event_id"	INTEGER NOT NULL,
+	"event_name"	INTEGER,
+	"starting_date"	DATE,
+	"starting_time"	VARCHAR(45),
+	"ending_date"	DATE,
+	"ending_time"	VARCHAR(45),
+	"activities"	VARCHAR(45),
+	PRIMARY KEY("event_id")
+);
+
+CREATE TABLE "club" (
+	"club_id"	INTEGER NOT NULL,
+	"event_id"	INTEGER NOT NULL,
+	"head_club_id"	INTEGER,
+	"club_name"	INTEGER,
+	PRIMARY KEY("club_id","event_id")
+);
+
+CREATE TABLE "course" (
+	"course_code"	VARCHAR(20),
+	"faculty_id"	INT,
+    "semestr_id" INT,
+	"course_name"	VARCHAR(45),
+	PRIMARY KEY("course_code")
+);
+
+
+CREATE TABLE "exam" (
+	"exam_id"	INTEGER NOT NULL,
+	"exam_format_id"	INTEGER NOT NULL,
+	"name"	VARCHAR(45),
+	PRIMARY KEY("exam_id","exam_format_id")
+);
+
+CREATE TABLE "exam_format" (
+	"exam_format_id"	INTEGER NOT NULL,
+	"exam_format"	VARCHAR(45),
+	PRIMARY KEY("exam_format_id")
+);
+
+
